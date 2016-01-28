@@ -3,7 +3,10 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.post_list),
+	#url(r'^$', views.post_login),
+	#url(r'^$', views.post_login, name='post_login'),
 	url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail),
+	url(r'^post/inicio/$', views.post_list2),
 	url(r'^post/new/$', views.post_new, name='post_new'),
 	url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
 	url(r'^drafts/$', views.post_draft_list, name='post_draft_list'),
