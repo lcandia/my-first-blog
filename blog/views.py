@@ -4,6 +4,10 @@ from .models import Post
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
+# Para el many to many de students:
+from django.contrib.admin.widgets import FilteredSelectMultiple
+from django.forms import ModelForm
+from django import forms
 
 # Create your views here.
 def post_list(request):
@@ -88,3 +92,5 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
+
+

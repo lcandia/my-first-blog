@@ -31,3 +31,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+# Modelo para crear formularios
+class Subjects(models.Model):
+    sub_name=models.CharField(max_length=100)
+    desc=models.CharField(max_length=100)
+
+
+class Student(models.Model):
+    name=models.CharField(max_length=100)
+    subject=models.ManyToManyField(Subjects)
