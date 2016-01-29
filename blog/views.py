@@ -94,3 +94,7 @@ def add_comment_to_post(request, pk):
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
 
 
+@login_required
+def pantalla_inicial(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/pantalla_inicial.html', {'posts': posts})

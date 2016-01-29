@@ -1,0 +1,111 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>New comment</h1>
+    <div class="container">
+			<div class="row">
+				<div class="col-md-3 col1">
+					<h3>Column 1</h3>
+					<div class="half-col last">
+							<header>Radio button</header>
+							<form>
+									<ul>
+											<li>
+													<label>
+															<input type="radio" name="radio" />
+															<span class="lbl padding-8">Proyecto 1</span>
+													</label>
+											</li>
+											<li>
+													<label>
+															<input type="radio" name="radio" />
+															<span class="lbl padding-8">Proyecto 2</span>
+													</label>
+											</li>
+											<li>
+													<label>
+															<input type="radio" name="radio" disabled />
+															<span class="lbl padding-8">Disabled Radio button</span>
+													</label>
+											</li>
+											<li>
+													<label>
+															<input type="radio" name="radio" checked disabled />
+															<span class="lbl padding-8">Checked and Disabled</span>
+													</label>
+											</li>
+									</ul>
+							</form>
+					</div>
+
+				</div>
+				<div class="col-md-9 col2">
+					<h3>Column 2</h3>
+					<div class="form-group">
+						<label class="col-xs-1 control-label">Sistema</label>
+						<div class="col-xs-4 selectContainer">
+							<select class="form-control" name="size">
+								<option value="">Seleccione un sistema</option>
+								<option value="s">CRM</option>
+								<option value="m">DIA</option>
+								<option value="l">KNOWLEDGE</option>
+								<option value="xl">TERA</option>
+							</select>
+						</div>
+					</div>
+					<br /><br /><br /><br /><br /><br /><br />
+
+					<form action="" method="post" id="formulario">
+					<!-- Nesting Starts -->
+						<div class="row">
+
+								<div class="col-md-4 col3">
+									<h3>Column 4</h3>
+									Lista de ambientes origen<br>
+									<select name="origen[]" id="origen" multiple="multiple" size="8">
+									<option value="1">Desarrollo SSI</option>
+									<option value="2">Test SSI</option>
+									<option value="3">Pre-producción NT</option>
+									<option value="4">Producción NT</option>
+									</select>
+								</div>
+								<div class="col-md-4 col4">
+									<h3>Column 5</h3>
+									<input type="button" class="pasar izq" value="Pasar »"><br />
+									<input type="button" class="quitar der" value="« Quitar"><br />
+									<input type="button" class="pasartodos izq" value="Todos »"><br />
+									<input type="button" class="quitartodos der" value="« Todos"><br />
+								</div>
+								<div class="col-md-4 col5">
+									<h3>Column 6</h3>
+									Lista destino<br>
+									<select name="destino[]" id="destino" multiple="multiple" size="8"></select>
+								</div>
+
+
+						</div>
+					<br /><br /><br />
+					<p class="clear"><input type="submit" class="submit" value="Procesar formulario"></p>
+					</form>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+<!--<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Bootstrap Plugins</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">                            -->
+		<!-- [if lt IE 9]>
+		<!--	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>     -->
+		<!--	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>    -->
+<!--		<![endif]
+	</head>
+	<body>
+
+	</body>
+</html> -->

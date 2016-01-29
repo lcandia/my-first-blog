@@ -13,4 +13,5 @@ urlpatterns = [
 	url(r'^post/(?P<pk>[0-9]+)/publish/$', views.post_publish, name='post_publish'),
     url(r'^post/(?P<pk>[0-9]+)/remove/$', views.post_remove, name='post_remove'),
 	url(r'^post/(?P<pk>[0-9]+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
+	url(r'^post/pant_ini/$', views.pantalla_inicial, name='pantalla_inicial'),
 ]

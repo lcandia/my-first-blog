@@ -1,12 +1,21 @@
 {% load staticfiles %}
-<html>
+<!<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Django Machos blog</title>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
 		<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}"> <!-- href="css/bootstrap.css"> -->
+        <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
     </head>
 
     <body>
@@ -15,6 +24,7 @@
 			{% if user.is_authenticated %}
 			<a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
 			<a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'blog.views.pantalla_inicial' %}" class="top-menu"><span class="glyphicon glyphicon-play"></span></a>
 			<p class="top-menu">
 				Hello {{ user.username }}<small>(<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a>)</small>
 			</p>
@@ -32,5 +42,11 @@
                 </div>
             </div>
         </div>
+        <!-- <script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/pasa_listas.js"></script>-->
+        <script type="text/javascript" src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/pasa_listas.js' %}"></script>
     </body>
 </html>
