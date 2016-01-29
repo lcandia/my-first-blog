@@ -25,6 +25,7 @@
 			<a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
 			<a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <a href="{% url 'blog.views.pantalla_inicial' %}" class="top-menu"><span class="glyphicon glyphicon-play"></span></a>
+            <a href="{% url 'blog.views.post_new2' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
 			<p class="top-menu">
 				Hello {{ user.username }}<small>(<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a>)</small>
 			</p>

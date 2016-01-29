@@ -1,13 +1,14 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from django.utils import timezone
 from .models import Post
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm , EnvironmentForm, SystemForm, ProjectForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 # Para el many to many de students:
 from django.contrib.admin.widgets import FilteredSelectMultiple
 from django.forms import ModelForm
 from django import forms
+from django.template import RequestContext, loader
 
 # Create your views here.
 def post_list(request):
@@ -98,3 +99,19 @@ def add_comment_to_post(request, pk):
 def pantalla_inicial(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/pantalla_inicial.html', {'posts': posts})
+
+@login_required
+def post_new2(request):
+    if request.method == "POST":
+        form = EnvironmentForm(request.POST)
+        form2 = SystemForm(request.POST)
+        if form.is_valid() and form2.is_valid():
+            #post = form.save(commit=False)
+            #post.author = request.user
+            # post.published_date = timezone.now()
+            post.save()
+            return redirect('blog.views.post_detail', pk=post.pk)
+    else:
+        form = EnvironmentForm()
+        form2 = SystemForm()
+    return render(request, 'blog/post_edit2.html', {'form': form, 'form2': form2})
