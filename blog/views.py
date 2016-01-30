@@ -109,8 +109,9 @@ def post_new2(request):
             #post = form.save(commit=False)
             #post.author = request.user
             # post.published_date = timezone.now()
-            post.save()
-            return redirect('blog.views.post_detail', pk=post.pk)
+            form.save()
+            form2.save()
+            return redirect('blog.views.post_detail')
     else:
         form = EnvironmentForm()
         form2 = SystemForm()

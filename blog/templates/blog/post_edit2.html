@@ -1,8 +1,47 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-	<h1>New post</h1>
+	<h1>New System</h1>
 	<form method="POST" class="post-form">{% csrf_token %}
+        {% for SystemForm in form2.system_name %}
+           <li>{{SystemForm}}
+           </li>
+        {% endfor %}
+        bbbbb
+        {% for field in form2 %}
+            <div class="field_container">
+                <div class="col-md-2">{{ field.system_name }}</div>
+                <div class="clearfix"></div>
+                <div class="col-md-2">{{ field }}</div>
+                <div class="clearfix"></div>
+                {% if field.errors %}
+                <div class="row">
+                    <div class="label label-danger col-md-2">
+                        {{ field.errors  }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        aaaa
+        <select name="brand" id="brand">
+            <option value="Z">Select a system</option>
+            {% for SystemForm in form2 %}
+                <option value="1">{{ form2.system_name }}</option>
+            {% endfor %}
+        </select>
+        xxx
+        {% for x in form2.system_name %}
+            <ul>
+            {{ x }}
+            </ul>
+        {% endfor %}
+        zzzzz
+        {% for SystemForm in form2 %}
+           <li>{{ form2.system_name }}
+           </li>
+        {% endfor %}
+        yyy
 		{{ form2 }}
         {{ form }}
 		<button type="submit" class="save btn btn-default">Save</button>
