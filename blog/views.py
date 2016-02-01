@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from django.utils import timezone
 from .models import Post
-from .forms import PostForm, CommentForm , EnvironmentForm, SystemForm, ProjectForm
+from .forms import PostForm, CommentForm , EnvironmentForm, SystemForm, ProjectForm, Comment
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 # Para el many to many de students:
@@ -96,6 +96,21 @@ def add_comment_to_post(request, pk):
 
 
 @login_required
+def comment_approve(request,pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.approve()
+    return redirect('blog.views.post_detail', pk=comment.post.pk)
+
+
+@login_required
+def comment_remove(request,pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    post_pk = comment.post.pk
+    comment.delete()
+    return redirect('blog.views.post_detail', pk=comment.post.pk)
+
+
+@login_required
 def pantalla_inicial(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/pantalla_inicial.html', {'posts': posts})
@@ -103,16 +118,16 @@ def pantalla_inicial(request):
 @login_required
 def post_new2(request):
     if request.method == "POST":
-        form = EnvironmentForm(request.POST)
+        #form = EnvironmentForm(request.POST)
         form2 = SystemForm(request.POST)
-        if form.is_valid() and form2.is_valid():
+        if form2.is_valid(): #form.is_valid() and form2.is_valid():
             #post = form.save(commit=False)
             #post.author = request.user
             # post.published_date = timezone.now()
-            form.save()
+            #form.save()
             form2.save()
             return redirect('blog.views.post_detail')
     else:
-        form = EnvironmentForm()
+        #form = EnvironmentForm()
         form2 = SystemForm()
-    return render(request, 'blog/post_edit2.html', {'form': form, 'form2': form2})
+    return render(request, 'blog/post_edit2.html', {'form2': form2})

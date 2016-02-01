@@ -35,6 +35,9 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
+    def approved_comments(self):
+        return self.comments.filter(approved_comment=True)
+
 # Modelo para crear formularios
 class Subjects(models.Model):
     sub_name=models.CharField(max_length=100)

@@ -28,7 +28,13 @@ class SystemForm(forms.ModelForm):
 
     class Meta:
         model = System
-        fields = ('system_name', 'description',)
+        fields = ('system_name', 'description', 'environments',)
+
+    def __init__ (self, *args, **kwargs):
+        super(SystemForm, self).__init__(*args, **kwargs)
+#        self.fields["environments"].widget = forms.widgets.CheckboxSelectMultiple()
+#        self.fields["environments"].help_text = ""
+#        self.fields["environments"].queryset = Environment.objects.all()
 
 
 class ProjectForm(forms.ModelForm):

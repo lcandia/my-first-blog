@@ -12,10 +12,43 @@
 		<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}"> <!-- href="css/bootstrap.css"> -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/django-admin-widgets.css' %}">
+
+
+        <script type="text/javascript" src="{% static 'js/django-admin.multiselect.js' %}"></script>
+        <!--
+        <script type="text/javascript" src="/admin/jsi18n/"></script>
+        -->
+        <script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
+        <script type="text/javascript" src="{% static 'admin/js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
+        <script type="text/javascript" src="{% static 'admin/js/SelectFilter2.js' %}"></script>
+        <script type="text/javascript" src="{% static 'admin/js/SelectBox.js' %}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}">
+
         <!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+
+        <!--
+        <script>
+            jQuery.each($("select[multiple]"), function () {
+                // "Locations" can be any label you want
+                SelectFilter.init(this.id, "Locations", 0, "js/");
+            });
+        </script>
+
+        <script type="text/javascript">
+            addEvent(window, "load", function(e) { SelectFilter.init("environments", "environments", 0, "{{ STATIC_URL }}admin/js/"); });
+        </script>
+        <script type="text/javascript">
+            addEvent(window, "load", function(e) { SelectFilter.init("environments", "environments", 0, "{% static 'admin/js/jquery.min.js' %}"); });
+        </script>
+        -->
     </head>
 
     <body>
@@ -49,5 +82,6 @@
         <script type="text/javascript" src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/pasa_listas.js' %}"></script>
+
     </body>
 </html>
